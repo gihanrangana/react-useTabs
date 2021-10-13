@@ -1,0 +1,36 @@
+.tabBar {
+    background-color: #494141;
+    width: 100%;
+    z-index: 9;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.tabItem {
+    @include headingText();
+    padding: 10px 20px;
+    position: relative;
+
+    &:hover {
+        color: $primary;
+    }
+}
+
+.tabItemActive {
+    color: $primary;
+}
+
+.tabIndicator {
+    height: 2px;
+    background-color: $primary;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.tabIndicatorActive {
+    display: block;
+}
