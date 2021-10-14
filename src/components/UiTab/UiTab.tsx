@@ -1,6 +1,5 @@
 import React from 'react'
-import TabBar from '../useTabs/TabBar'
-import TabBody from '../useTabs/TabBody'
+import { TabBar, TabBody } from '../../lib'
 
 import tabBarStyles from './UiTabBar.module.scss'
 import tabBodyStyles from './UiTabBody.module.scss'

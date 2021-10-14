@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './App.module.scss';
 import { UiTabBar, UiTabBody } from './components/UiTab/UiTab';
-import { useTabs } from './components/useTabs/UseTabs';
+import { useTabs } from './lib';
 
 export default function App() {
 
