@@ -1,8 +1,8 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 
 const TabBar: React.FC<TabBarProps> = (props) => {
 
-    const { tabs, tabState, tabMinWidth, tabMinItems, activeTabName, activeTabIndex, setActiveTab } = props;
+    const { tabs, tabState, activeTabName, activeTabIndex, setActiveTab } = props;
 
     const tabStyles = props.tabStyles || {};
 
@@ -29,34 +29,45 @@ const TabBar: React.FC<TabBarProps> = (props) => {
 
         const tabClass = [tabStyles.tabItem];
         const tabLabelClass = [tabStyles.tabLabel];
-        const tabIndicatorClass = [tabStyles.tabIndicator];
 
         if (index === activeTabIndex) {
             tabClass.push(tabStyles.tabItemActive);
             tabLabelClass.push(tabStyles.tabLabelActive);
-            tabIndicatorClass.push(tabStyles.tabIndicatorActive);
         }
 
         return (
             <a
+                ref={index === activeTabIndex ? props.tabActiveRef : null}
                 key={index}
                 href={`#${tab.name}`}
                 onClick={(e) => onClick(e, tab, index)}
                 className={tabClass.join(' ')}
+                data-active={index === activeTabIndex}
             >
 
                 <span className={tabLabelClass.join(' ')}>{tab.label}</span>
-                
-                <div className={tabIndicatorClass.join(' ')} />
+
             </a>
         )
 
     }, [activeTabIndex])
 
+    useEffect(() => {
+
+        const offsetLeft = props.tabActiveRef?.current?.offsetLeft;
+        const offsetWidth = props.tabActiveRef?.current?.offsetWidth;
+        
+        props.tabIndicatorRef.current.style.left = offsetLeft + "px";
+        props.tabIndicatorRef.current.style.width = offsetWidth + "px";
+
+        console.log(offsetLeft)
+        
+    },[props])
+
     return useMemo(() => (
 
         <div
-            ref={props.tabBarRef}
+            ref={props.forwardedRef}
             className={tabStyles.tabBar}
         >
 
@@ -65,6 +76,8 @@ const TabBar: React.FC<TabBarProps> = (props) => {
                 renderItem(tab, i)
 
             ))}
+
+            <div ref={props.tabIndicatorRef} className={tabStyles.tabIndicator} />
 
         </div>
 

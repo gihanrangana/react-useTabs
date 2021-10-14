@@ -53,6 +53,8 @@ const useTabs = (tabs: Array<TabProps>, initialTabName?: string): TabGroup => {
     return {
         tabBarRef: createRef(),
         tabBodyRef: createRef(),
+        tabActiveRef: createRef(),
+        tabIndicatorRef: createRef(),
         tabs: tabs,
         activeTab: activeTab,
         activeTabName: activeTabName,
