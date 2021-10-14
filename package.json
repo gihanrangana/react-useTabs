@@ -7,7 +7,9 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -66,5 +68,6 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/SL-CodeBlaster/sass-react-app/issues"
-  }
+  },
+  "homepage": "http://gihanrangana.github.io/react-useTabs"
 }
