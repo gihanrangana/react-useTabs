@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo } from 'react'
 
 const TabBar: React.FC<TabBarProps> = (props) => {
 
-    const { tabs, tabState, activeTabName, activeTabIndex, setActiveTab } = props;
+    const { tabs, tabState, activeTabIndex, setActiveTab } = props;
 
     const tabStyles = props.tabStyles || {};
 
@@ -59,8 +59,6 @@ const TabBar: React.FC<TabBarProps> = (props) => {
         
         props.tabIndicatorRef.current.style.left = offsetLeft + "px";
         props.tabIndicatorRef.current.style.width = offsetWidth + "px";
-
-        console.log(offsetLeft)
         
     },[props])
 

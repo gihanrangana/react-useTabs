@@ -1,16 +1,10 @@
-import React, { createRef, useEffect } from 'react'
+import React from 'react'
 import { TabBar, TabBody } from '../../lib'
 
 import tabBarStyles from './UiTabBar.module.scss'
 import tabBodyStyles from './UiTabBody.module.scss'
 
 const UiTabBar: React.FC<UiTabBarProps> = (props) => {
-
-    // const tabBarRef:any = createRef();
-    
-    useEffect(() => {
-        console.log(props.tabActiveRef.current);
-    },[props])
 
     return (
         <>

@@ -5,7 +5,7 @@ const TabBody: React.FC<TabBodyProps> = (props) => {
     const { activeTab, activeTabIndex } = props;
 
     const tabStyles = props.tabStyles || {};
-    
+
     const [currentTab, setCurrentTab] = useState(activeTab);
     const [currentTabIndex, setCurrentTabIndex] = useState(activeTabIndex);
 
@@ -38,8 +38,10 @@ const TabBody: React.FC<TabBodyProps> = (props) => {
                 ref={props.tabBodyRef}
                 className={tabStyles.tabBody}
             >
-                
-                {currentTab && currentTab.render && currentTab.render()}
+
+                <div className={tabStyles.tabContainer}>
+                    {currentTab && currentTab.render && currentTab.render()}
+                </div>
 
             </div>
         )
